@@ -24,7 +24,6 @@ setup(
 
     py_modules=['ungleichcli'],
     install_requires=[
-        'Click',
         'requests',
     ],
     entry_points={

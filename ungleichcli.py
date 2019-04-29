@@ -1,20 +1,24 @@
 import requests
-import click
+import argparse
 
 
-@click.command()
-@click.argument('dns', required=False)
-@click.option('--set-reverse', help='REQUIRED: IPv6 Address of your VM', required=True)
-@click.option('--user', help='Your ungleich username', required=True)
-@click.option('--token', help='REQUIRED: Your ungleich 6 digit OTP generated token', type=int)
-@click.option('--name', help='REQUIRED: Hostname', required=True)
-def cli(dns, set_reverse, user, token, name):
-    """This script set the reverse dns for your VM
+def msg(name=None):
+    return '''ungleich-cli --set-reverse <ipv6adrress> --user <username> --token <token> --name <hostname>'''
 
-    Example Usage:
 
-    ungleich-cli dns --set-reverse <ip> --user <username> --token <token> --name mirror.example.com
+parser = argparse.ArgumentParser(description="This script set the reverse dns for your VM", usage=msg())
 
-    """
-    r = requests.post('https://ungleich.ch/dns/reverse/', json={'username': user, 'token': token, 'ipaddress': set_reverse, 'name': name})
-    return click.echo(r.text)
+parser.add_argument('--set-reverse', help='REQUIRED: IPv6 Address of your VM', metavar='', required=True)
+parser.add_argument('--user', help='Your ungleich username', metavar='', required=True)
+parser.add_argument('--token', help='Your ungleich 6 digit OTP generated token', metavar='', type=int, required=True)
+parser.add_argument('--name', help='Hostname', metavar='', required=True)
+
+args = parser.parse_args()
+
+
+def cli():
+    """A dummy endpoint, to check what endpoint will be reverse-dns service."""
+    r = requests.post(
+        'https://en53kfc0hydpg.x.pipedream.net',
+        json={'username': args.user, 'token': args.token, 'ipaddress': args.set_reverse, 'name': args.name})
+    return r.text

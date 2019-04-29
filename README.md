@@ -7,7 +7,7 @@ A python package to set reverse dns in ungleich vm.
 installing the package via pip (python3 required)
 
 ```angular2
-python3 -m pip install ungleich-cli --user
+python3 -m pip install ungleich-cli
 ```
 after installed you can set the reverse dns by typing
 
