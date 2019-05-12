@@ -40,7 +40,10 @@ class ungleichCLI(object):
 
     def commandline(self):
         args = self.parser['main'].parse_args()
-        args.func(args)
+        if 'func' in args:
+            args.func(args)
+        else:
+            self.parser['main'].print_help()
 
 
 if __name__ == '__main__':
