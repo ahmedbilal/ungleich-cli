@@ -5,7 +5,7 @@ import argparse
 from ungleich_dns import ungleichDNS
 from ungleich_ripe import ungleichRIPE
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 
 class ungleichCLI(object):
     def __init__(self):

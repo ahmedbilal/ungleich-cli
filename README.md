@@ -7,19 +7,17 @@ It is intended to be used by ungleich engineers and skilled customers.
 
 * ensure you have python3
 * git clone this repo
-* python ungleich-cli.py
+
+## Usage general
+
+```
+ungleich --help
+```
 
 ## Usage: DNS
 
-installing the package via pip (python3 required)
-
-```angular2
-python3 -m pip install ungleich-cli
 ```
-after installed you can set the reverse dns by typing
-
-```angular2
-ungleich-cli dns --set-reverse <ip> --user <username> --token <token> --name mirror.example.com
+ungleich dns --set-reverse <ip> --user <username> --token <token> --name mirror.example.com
 ```
 
 ### Usage: RIPE
@@ -27,7 +25,7 @@ ungleich-cli dns --set-reverse <ip> --user <username> --token <token> --name mir
 Creating a new route6 object:
 
 ```
-ungleichcli.py ripe-add-route6 \
+ungleich ripe-add-route6 \
     --network 2a09:2947::/32
     --description "First REST /32"
     --password "very secure"

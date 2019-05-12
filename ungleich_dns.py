@@ -6,7 +6,9 @@ class ungleichDNS(object):
         self.parser = parser
 
         self.parser['dns'] = self.parser['sub'].add_parser(
-            'dns', parents=[parents])
+            'dns',
+            help="Manage DNS entries @ ungleich",
+            parents=[parents])
 
         self.parser['dns'].add_argument('--set-reverse', help='REQUIRED: IPv6 Address of your VM', metavar='', required=True)
         self.parser['dns'].add_argument('--user', help='Your ungleich username', metavar='', required=True)
