@@ -1,8 +1,15 @@
-# Ungleich dns cli tool
+# ungleich cli
 
-A python package to set reverse dns in ungleich vm.
+This CLI is used for day-to-day tasks used at ungleich.
+It is intended to be used by ungleich engineers and skilled customers.
 
-## Usage
+## Requirements / Installation
+
+* ensure you have python3
+* git clone this repo
+* python ungleich-cli.py
+
+## Usage: DNS
 
 installing the package via pip (python3 required)
 
