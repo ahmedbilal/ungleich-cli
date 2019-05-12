@@ -41,19 +41,9 @@ class ungleichRIPE(object):
         ripe_object['descr'] = args.description
         ripe_object['mnt-by'] = "mnt-ungleich"
 
-#        ripe_attributes = []
         ripe_attributes = [{ "name": key, "value": value } for key, value in ripe_object.items() ]
 
-        # for key, value in ripe_object.items():
-        #     ripe_attributes.append( { "name": key,
-        #                                     "value": value
-        #                                     }
-        #     )
-
-                      # "source": {
-                      #     "id": "RIPE"
-                      # },
-
+        # Format according to API layout
         ripe_element = {}
         ripe_element['objects'] = []
         ripe_element['objects'].append(
@@ -69,6 +59,8 @@ class ungleichRIPE(object):
         )
 
         data = json.dumps(ripe_element).encode('utf-8')
+
+        # debug
         pprint.pprint(ripe_element)
 
         method = 'POST'
@@ -80,8 +72,6 @@ class ungleichRIPE(object):
                                          "Content-Type": "application/json",
                                          "Accept": "application/json"
                                      })
-
-        pprint.pprint(req)
 
         print("Adding a v6 route object at {} for {} with {} req={}".format(url, args.network, data, str(req)))
 

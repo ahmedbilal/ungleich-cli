@@ -2,6 +2,10 @@
 
 A python package to set reverse dns in ungleich vm.
 
+## Requirements
+
+You need at least python 3.
+
 ## Usage
 
 installing the package via pip (python3 required)
