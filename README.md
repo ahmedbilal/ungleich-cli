@@ -17,7 +17,7 @@ ungleich --help
 ## Usage: DNS
 
 ```
-ungleich dns --set-reverse <ip> --user <username> --token <token> --name mirror.example.com
+ungleich dns --set-reverse <ip> --user <username> --token <token> --realm <realm> --email <email> --name mirror.example.com
 ```
 
 ### Usage: RIPE
