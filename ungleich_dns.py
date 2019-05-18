@@ -10,12 +10,12 @@ class ungleichDNS(object):
             help="Manage DNS entries @ ungleich",
             parents=[parents])
 
-        self.parser['dns'].add_argument('--set-reverse', help='REQUIRED: IPv6 Address of your VM', metavar='', required=True)
-        self.parser['dns'].add_argument('--user', help='Your ungleich username', metavar='', required=True)
-        self.parser['dns'].add_argument('--token', help='Your ungleich 6 digit OTP generated token', metavar='', type=int, required=True)
-        self.parser['dns'].add_argument('--name', help='Hostname', metavar='', required=True)
-        self.parser['dns'].add_argument('--email', help='registered email', metavar='', required=True)
-        self.parser['dns'].add_argument('--realm', help='Otp realm', metavar='', required=True)
+        self.parser['dns'].add_argument('--set-reverse', help='REQUIRED: IPv6 Address of your VM', required=True)
+        self.parser['dns'].add_argument('--user', help='Your ungleich username', required=True)
+        self.parser['dns'].add_argument('--token', help='Your ungleich 6 digit OTP generated token', type=int, required=True)
+        self.parser['dns'].add_argument('--name', help='Hostname', required=True)
+        self.parser['dns'].add_argument('--email', help='registered email', required=True)
+        self.parser['dns'].add_argument('--realm', help='Otp realm', required=True)
         self.parser['dns'].set_defaults(func=self._handle_dns)
 
     def _handle_dns(self, args):
