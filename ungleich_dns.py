@@ -19,9 +19,9 @@ class ungleichDNS(object):
         self.parser['dns'].set_defaults(func=self._handle_dns)
 
     def _handle_dns(self, args):
-        """A dev endpoint for reverse-dns service."""
+        """Reverse dns endpoint."""
         r = requests.post(
-            'https://dev.william.ungleich.cloud',
+            'https://dns.service.ungleich.ch',
             json={
                 'username': args.user,
                 'token': args.token,
