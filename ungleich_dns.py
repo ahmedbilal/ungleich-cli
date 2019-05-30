@@ -10,14 +10,24 @@ class ungleichDNS(object):
             help="Manage DNS entries @ ungleich",
             parents=[parents])
 
-        self.parser['dns'].add_argument('--set-reverse', help='REQUIRED: IPv6 Address of your VM', metavar='', required=True)
-        self.parser['dns'].add_argument('--user', help='Your ungleich username', metavar='', required=True)
-        self.parser['dns'].add_argument('--token', help='Your ungleich 6 digit OTP generated token', metavar='', type=int, required=True)
-        self.parser['dns'].add_argument('--name', help='Hostname', metavar='', required=True)
+        self.parser['dns'].add_argument('--set-reverse', help='REQUIRED: IPv6 Address of your VM', required=True)
+        self.parser['dns'].add_argument('--user', help='Your ungleich username', required=True)
+        self.parser['dns'].add_argument('--token', help='Your ungleich 6 digit OTP generated token', type=int, required=True)
+        self.parser['dns'].add_argument('--name', help='Hostname', required=True)
+        self.parser['dns'].add_argument('--email', help='registered email', required=True)
+        self.parser['dns'].add_argument('--realm', help='Otp realm', required=True)
+        self.parser['dns'].set_defaults(func=self._handle_dns)
 
-    def _handle_dns(self):
-        """A dummy endpoint, to check what endpoint will be reverse-dns service."""
+    def _handle_dns(self, args):
+        """A dev endpoint for reverse-dns service."""
         r = requests.post(
-            'https://en53kfc0hydpg.x.pipedream.net',
-            json={'username': args.user, 'token': args.token, 'ipaddress': args.set_reverse, 'name': args.name})
-        return r.text
+            'https://dev.william.ungleich.cloud',
+            json={
+                'username': args.user,
+                'token': args.token,
+                'ipaddress': args.set_reverse,
+                'name': args.name,
+                'email': args.email,
+                'realm': args.realm
+            })
+        print(r.text)

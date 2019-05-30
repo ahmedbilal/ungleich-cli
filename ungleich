@@ -4,6 +4,7 @@ import argparse
 
 from ungleich_dns import ungleichDNS
 from ungleich_ripe import ungleichRIPE
+from ungleich_account import Account_Create
 
 VERSION = "0.0.3"
 
@@ -14,6 +15,7 @@ class ungleichCLI(object):
         # FIXME: make it generic
         dns = ungleichDNS(self.parser, self.parser_parents)
         ripe = ungleichRIPE(self.parser, self.parser_parents)
+        ripe = Account_Create(self.parser, self.parser_parents)
 
     def _init_parser(self):
         self.parser = {}
