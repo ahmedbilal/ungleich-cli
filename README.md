@@ -30,3 +30,12 @@ ungleich ripe-add-route6 \
     --description "First REST /32"
     --password "very secure"
 ```
+
+### Usage: Account
+
+Creating a new account object:
+
+```
+ungleich account --create-user <username> --name <firstname> --lastname <lastname> --email <email>
+
+```
