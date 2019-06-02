@@ -7,11 +7,21 @@ It is intended to be used by ungleich engineers and skilled customers.
 
 * ensure you have python3
 * git clone this repo
+* cd into this repo
+* run the following command
+```
+sudo pip3 install -r requirements.txt
+```
 
 ## Usage general
 
 ```
 ungleich --help
+```
+## Usage: Weather
+
+```
+ungleich weather
 ```
 
 ## Usage: DNS
