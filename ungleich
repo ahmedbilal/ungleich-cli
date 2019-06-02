@@ -5,8 +5,10 @@ import argparse
 from ungleich_dns import ungleichDNS
 from ungleich_ripe import ungleichRIPE
 from ungleich_account import Account_Create
+from ungleich_weather import ungleichWeather
 
 VERSION = "0.0.3"
+
 
 class ungleichCLI(object):
     def __init__(self):
@@ -16,9 +18,10 @@ class ungleichCLI(object):
         dns = ungleichDNS(self.parser, self.parser_parents)
         ripe = ungleichRIPE(self.parser, self.parser_parents)
         ripe = Account_Create(self.parser, self.parser_parents)
+        ungleichWeather(self.parser, self.parser_parents)
 
     def _init_parser(self):
-        self.parser = {}
+        self.parser = dict()
 
         # Options _all_ parsers have in common
         self.parser['loglevel'] = argparse.ArgumentParser(add_help=False)
